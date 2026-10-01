@@ -6,7 +6,7 @@ from server_mqtt import MQTTServer
 
 class RenderRequestHandler(RPCRequestHandler):
     def do_GET(self):
-        if self.path.split("?", 1)[0] == "/health":
+        if self.path.split("?", 1)[0] in ["/health","/healthz"]:
             body = b'{"ok":true}'
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
